@@ -15,23 +15,36 @@ using System.Windows.Shapes;
 
 namespace RundenAnsicht
 {
-    /// <summary>
-    /// Interaktionslogik für Anfrage.xaml
-    /// </summary>
+    
     public partial class Anfrage : Page
     {
+        private AnfrageViewModel viewModel = new AnfrageViewModel();
+        public bool Typen { get; set; }
         public Anfrage()
         {
             InitializeComponent();
-        }
-
-        private void Start_Click(object sender, RoutedEventArgs e)
-        {
+            
 
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
+
+            string teil= Teilnehmer.Text;
+            int Initati = int.Parse(Initativ.Text);
+            viewModel.Add(teil, Initati,Typen);  
+
+        }
+      
+        private void NeuSpieler_Checked(object sender, RoutedEventArgs e)
+        {
+            if (Typen == false) Typen= true;
+            
+        }
+
+        private void NeuGegner_Checked(object sender, RoutedEventArgs e)
+        {
+            if (Typen) Typen = false;
 
         }
     }

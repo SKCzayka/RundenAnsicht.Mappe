@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using RundenAnsicht.Model;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,14 +15,17 @@ namespace RundenAnsicht
     /// </summary>
     public partial class App : Application
     {
-        public static ServiceProvider serviceProvider;
+        public static ServiceProvider serviceProvider { get; private set; }
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             ServiceCollection services = new ServiceCollection();
 
             services
                 .AddSingleton<Konsole>()
-                .AddSingleton<Anfrage>();
+                .AddTransient<Anfrage>()
+                .AddSingleton<Ansicht>()
+                .AddSingleton<List<Kampfteilnehmer>>();
+            
 
 
             serviceProvider = services.BuildServiceProvider();

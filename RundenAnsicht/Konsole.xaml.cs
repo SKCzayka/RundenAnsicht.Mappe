@@ -25,6 +25,7 @@ namespace RundenAnsicht
         {
             InitializeComponent();
             _viewModel = (KonsoleViewModel)DataContext;
+            
              
         }
 
@@ -33,6 +34,12 @@ namespace RundenAnsicht
             MessageBox.Show("Möchten Sie Schließen? Es wird nicht gespeichert");
             this.Close();
             
+        }
+        private void Start_Click(object sender, RoutedEventArgs e)
+        {
+            _viewModel.show();
+            Start.Visibility = Visibility.Hidden;
+
         }
 
     }

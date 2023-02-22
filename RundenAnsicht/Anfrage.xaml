@@ -10,30 +10,42 @@
     <Page.DataContext>
         <local:AnfrageViewModel/>
     </Page.DataContext>
-    <Grid>
+    <Grid Background="Azure">
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
             <RowDefinition Height="2*"/>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="2*"/>
         </Grid.ColumnDefinitions>
-        
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBox Text="Name des Helden oder Gegners"></TextBox>
-            <TextBlock  Height="25"/>
-            <TextBox Text="Name des Helden oder Gegners"></TextBox>
-            <TextBlock  Height="25"/>
-            <StackPanel Margin="25 5" Orientation="Horizontal">
-                <RadioButton Margin="50 0" Content="Spieler"/>
-                <RadioButton Margin="50 0" Content="Gegner"/>
-            </StackPanel>
-           
-            <Button Margin="80 5" Content="Teilnehmer Hinzufügen" Name="Add" Click="Add_Click"/>
-            <Button Margin="80 5" Content="Kampf Beginnen" Name="Start" Click="Start_Click"/>
+
+
+
+        <StackPanel Grid.Row="1" Grid.Column="1" >
+            <TextBlock Margin=" 0 5 " Text="Name des Helden oder Gegners"></TextBlock>
+            <TextBlock Margin=" 0 5 " Text="Welchen Initativwert hat er?"></TextBlock>
         </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="2" >
+            
+            <TextBox Margin=" 0 5 " Name="Teilnehmer" Width="250"/>
+            <TextBox Margin=" 0 5 " Name="Initativ" Width="250"/>
+            
+            <StackPanel Margin="20 5" Orientation="Horizontal">
+                <RadioButton Margin="0 0" Name="NeuSpieler" Content="Spieler" Checked="NeuSpieler_Checked"/>
+                <RadioButton Margin="50 0" Name="NeuGegner" Content="Gegner" Checked="NeuGegner_Checked"/>
+            </StackPanel>
+            
+        </StackPanel>
+        
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Button Margin="5" Content="Teilnehmer Hinzufügen" Name="Add" Click="Add_Click"/>
+        </Grid>
+       
+
     </Grid>
 </Page>
