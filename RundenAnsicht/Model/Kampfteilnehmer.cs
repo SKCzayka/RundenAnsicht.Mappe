@@ -28,5 +28,7 @@ namespace RundenAnsicht.Model
             Typ=typ;
         }
         public Kampfteilnehmer() { }
-    }
+              
+     }
 }
+

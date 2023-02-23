@@ -32,7 +32,7 @@ namespace RundenAnsicht
 
             string teil= Teilnehmer.Text;
             int Initati = int.Parse(Initativ.Text);
-            viewModel.Add(teil, Initati,Typen);  
+            viewModel.Add(teil, Initati, Typen);  
 
         }
       

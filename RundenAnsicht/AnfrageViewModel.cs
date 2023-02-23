@@ -10,24 +10,26 @@ namespace RundenAnsicht
 {
     public class AnfrageViewModel : INotifyPropertyChanged
     {
-        private List<Kampfteilnehmer>_Kampfteilnehmers;
-      
-        public List<Kampfteilnehmer> Kampfteilnehmers
-       {
-           get { return _Kampfteilnehmers  ; }
-           set
-           {
-                _Kampfteilnehmers= value;
-               if (PropertyChanged != null)
-                   PropertyChanged(this, new PropertyChangedEventArgs("Kampfteilnehmers"));
-                       }
-       }
+        private List<Kampfteilnehmer> Kampfteilnehmers;
+
+        public List <Kampfteilnehmer> kampfteilnehmers
+        {
+            get { return Kampfteilnehmers;}
+            set
+            {
+                Kampfteilnehmers = value;
+                if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("kampfteilnehmers"));
+            }
+        }    
+       
+    public event PropertyChangedEventHandler? PropertyChanged;
         public void Add(string teil, int Initativ, bool Typ)
         {
-            _Kampfteilnehmers.Add(new Kampfteilnehmer() { Name = teil, Init = Initativ, Typ=true }); 
+            Kampfteilnehmers.Add(new Kampfteilnehmer() { Name = teil, Init = Initativ, Typ=true }); 
         }
     
-        public event PropertyChangedEventHandler? PropertyChanged;
+        
     }
    
      
