@@ -8,25 +8,24 @@ using System.Threading.Tasks;
 
 namespace RundenAnsicht
 {
-    public class AnfrageViewModel : INotifyPropertyChanged
+    public class AnfrageViewModel
     {
-        private List<Kampfteilnehmer> Kampfteilnehmers;
-
-        public List <Kampfteilnehmer> kampfteilnehmers
+       public List<Kampfteilnehmer> Kampfteilnehmers { get; set; }
+        public AnfrageViewModel()
         {
-            get { return Kampfteilnehmers;}
-            set
-            {
-                Kampfteilnehmers = value;
-                if (PropertyChanged != null)
-                    PropertyChanged(this, new PropertyChangedEventArgs("kampfteilnehmers"));
-            }
-        }    
+           
+        }
+
+
        
-    public event PropertyChangedEventHandler? PropertyChanged;
+            
+        
+       
+    
         public void Add(string teil, int Initativ, bool Typ)
         {
-            Kampfteilnehmers.Add(new Kampfteilnehmer() { Name = teil, Init = Initativ, Typ=true }); 
+                
+            Kampfteilnehmers.Add( new Kampfteilnehmer() { Name = teil, Init = Initativ, Typ=true }); 
         }
     
         

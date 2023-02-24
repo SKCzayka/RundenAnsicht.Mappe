@@ -12,8 +12,8 @@
     <None Remove="2498.jpg" />
     <None Remove="cubes-34080.png" />
     <None Remove="grunge-papierhintergrund.jpg" />
+    <None Remove="Image\2498.jpg" />
     <None Remove="scroll-34696.png" />
-    <None Remove="scroll-34696.svg" />
     <None Remove="vintage-strukturierter-aquarellpapierhintergrund.jpg" />
   </ItemGroup>
 
@@ -22,13 +22,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="2498.eps" />
-    <Resource Include="2498.jpg" />
-    <Resource Include="cubes-34080.png" />
-    <Resource Include="grunge-papierhintergrund.jpg" />
-    <Resource Include="scroll-34696.png" />
-    <Resource Include="scroll-34696.svg" />
-    <Resource Include="vintage-strukturierter-aquarellpapierhintergrund.jpg" />
+    <Resource Include="Image\2498.eps" />
+    <Resource Include="Image\2498.jpg" />
+    <Resource Include="Image\cubes-34080.png" />
+    <Resource Include="Image\grunge-papierhintergrund.jpg" />
+    <Resource Include="Image\scroll-34696.png" />
+    <Resource Include="Image\vintage-strukturierter-aquarellpapierhintergrund.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="viewModels\" />
   </ItemGroup>
 
 </Project>

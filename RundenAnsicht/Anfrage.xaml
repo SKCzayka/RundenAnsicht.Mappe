@@ -14,7 +14,7 @@
         <Style TargetType="Button" >
             <Setter Property="Background">
                 <Setter.Value>
-                    <ImageBrush ImageSource="/2498.jpg"/>
+                    <ImageBrush ImageSource="/image/2498.jpg"/>
                 </Setter.Value>
             </Setter>
 

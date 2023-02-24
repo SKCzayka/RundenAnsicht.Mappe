@@ -16,7 +16,7 @@ namespace RundenAnsicht
     public partial class App : Application
     {
         public static ServiceProvider serviceProvider { get; private set; }
-        public static List<Kampfteilnehmer> Kampfteilnehmers { get;set; }
+        
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             ServiceCollection services = new ServiceCollection();
@@ -24,7 +24,8 @@ namespace RundenAnsicht
             services
                 .AddSingleton<Konsole>()
                 .AddTransient<Anfrage>()
-                .AddSingleton<Ansicht>();
+                .AddSingleton<Ansicht>()
+                .AddSingleton<Datenholder>();
                 
                
                 

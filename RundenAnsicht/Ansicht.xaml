@@ -3,11 +3,13 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-      xmlns:local="clr-namespace:RundenAnsicht"
-      mc:Ignorable="d" Name="Ansicht" DataContext="{Binding ElementName=Ansicht}"
+      xmlns:local="clr-namespace:RundenAnsicht" 
+      mc:Ignorable="d" FontFamily="Arial Black"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Ansicht">
-
+    <Page.DataContext>
+        <local:AnsichtViewModel/>
+    </Page.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -20,8 +22,46 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.ColumnSpan="2"  >
-            <ListBox ItemsSource="{Binding }"/>
+        <Grid Grid.ColumnSpan="3"  Grid.RowSpan="2">
+            <StackPanel>
+                <ItemsControl Name="Kampfrunde">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,0,0,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="25"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="{Binding Name}" />
+                                <TextBlock Grid.Row="1" Text="{Binding Initiv}" />
+                                <TextBlock Grid.Row="2" Text="{Binding Typ}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            <StackPanel>
+                <ItemsControl Name="Neue_Runde">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,0,0,5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="{Binding Name}" />
+                                <TextBlock Grid.Row="1" Text="{Binding Initiv}" />
+                                <TextBlock Grid.Row="2" Text="{Binding Typ}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            
         </Grid>
+        <Button Grid.Row="3" Name="Next" Content="Weiter" Click="Next_Click"/>
     </Grid>
 </Page>

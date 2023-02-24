@@ -7,14 +7,14 @@
         mc:Ignorable="d" WindowStyle="None"
         Title="Konsole" Height="450" Width="800">
     <Window.Background>
-        <ImageBrush TileMode="FlipX" ImageSource="/vintage-strukturierter-aquarellpapierhintergrund.jpg"/>
+        <ImageBrush TileMode="FlipX" ImageSource="/image/vintage-strukturierter-aquarellpapierhintergrund.jpg"/>
     </Window.Background>
     <Window.Resources >
 
         <Style TargetType="Button" >
             <Setter Property="Background">
                 <Setter.Value>
-                    <ImageBrush ImageSource="/2498.jpg"/>
+                    <ImageBrush ImageSource="/image/2498.jpg"/>
                 </Setter.Value>
             </Setter>
             <Setter Property="FontFamily" Value="Arial Black"/>
@@ -54,15 +54,15 @@
 
             <Grid   Grid.ColumnSpan="6">
                 <Grid.Background>
-                    <ImageBrush ImageSource="/grunge-papierhintergrund.jpg"/>
+                    <ImageBrush ImageSource="/image/grunge-papierhintergrund.jpg"/>
                 </Grid.Background>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="40"/>
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="25"/>
                 </Grid.ColumnDefinitions>
-                
-                <Image  Margin="5" Source="/cubes-34080.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" />
+
+                <Image  Margin="5" Source="/image/cubes-34080.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" />
                     
               
                 <Button Grid.Column="2"  Name="Exit" Content="X" Click="Exit_Click"/>

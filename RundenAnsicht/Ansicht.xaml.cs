@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RundenAnsicht.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,28 @@ namespace RundenAnsicht
     /// </summary>
     public partial class Ansicht : Page
     {
-        public Ansicht()
+        public List <Kampfteilnehmer> Round { get; set; }
+        public List <Kampfteilnehmer> Next_Round { get; set; }
+
+        public List<Kampfteilnehmer> kampfteilnehmers { get; set; }
+
+        public Ansicht( )
         {
+            
             InitializeComponent();
+            if(Round != null)
+            {
+                List<Kampfteilnehmer> Round = kampfteilnehmers.ToList();
+
+            }
+            
+            Kampfrunde.ItemsSource= Round;
+            Neue_Runde.ItemsSource= Next_Round;
+        }
+
+        private void Next_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
