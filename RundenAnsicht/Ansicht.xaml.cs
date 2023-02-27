@@ -1,6 +1,7 @@
 ﻿using RundenAnsicht.Model;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,29 +20,47 @@ namespace RundenAnsicht
     /// <summary>
     /// Interaktionslogik für Ansicht.xaml
     /// </summary>
-    public partial class Ansicht : Page
+    public partial class Ansicht : Page, INotifyPropertyChanged
     {
-        public List <Kampfteilnehmer> Round { get; set; }
-        public List <Kampfteilnehmer> Next_Round { get; set; }
+        private AnsichtViewModel _viewModel;
 
-        public List<Kampfteilnehmer> kampfteilnehmers { get; set; }
-
-        public Ansicht( )
+        public Ansicht(AnsichtViewModel ansichtViewModel )
         {
-            
+            viewModel= ansichtViewModel;
             InitializeComponent();
-            if(Round != null)
-            {
-                List<Kampfteilnehmer> Round = kampfteilnehmers.ToList();
-
-            }
+    
             
-            Kampfrunde.ItemsSource= Round;
-            Neue_Runde.ItemsSource= Next_Round;
+            Kampfrunde.ItemsSource= viewModel.Round;
+            Neue_Runde.ItemsSource= viewModel.Next_Round;
+            
         }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         private void Next_Click(object sender, RoutedEventArgs e)
         {
+            viewModel.Next_One();
+
+
+        }
+
+        private void Exit_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Round_Next_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.Round_End();
+        }
+        public AnsichtViewModel viewModel
+        { 
+            get { return _viewModel; }
+            set { 
+                _viewModel = value;
+                if (PropertyChanged !=null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("viewModel"));
+            }
 
         }
     }

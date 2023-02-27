@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RundenAnsicht" 
-        mc:Ignorable="d" WindowStyle="None"
+        mc:Ignorable="d" WindowStyle="None" Name="Kon" DataContext="{Binding viewModel, ElementName=Kon}"
         Title="Konsole" Height="450" Width="800">
     <Window.Background>
         <ImageBrush TileMode="FlipX" ImageSource="/image/vintage-strukturierter-aquarellpapierhintergrund.jpg"/>
@@ -22,9 +22,6 @@
 
     </Window.Resources>
 
-    <Window.DataContext>
-        <local:KonsoleViewModel/>
-    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="129*"/>

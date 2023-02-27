@@ -9,23 +9,18 @@ using System.Threading.Tasks;
 namespace RundenAnsicht
 {
     public class AnfrageViewModel
+
     {
-       public List<Kampfteilnehmer> Kampfteilnehmers { get; set; }
-        public AnfrageViewModel()
+        public Datenholder Datenholder { get; set; }
+
+        public AnfrageViewModel(Datenholder datenholder)
         {
-           
+            Datenholder= datenholder;
         }
-
-
-       
-            
-        
-       
     
         public void Add(string teil, int Initativ, bool Typ)
         {
-                
-            Kampfteilnehmers.Add( new Kampfteilnehmer() { Name = teil, Init = Initativ, Typ=true }); 
+             Datenholder.Kampfteilnehmers.Add(new () { Name = teil, Init = Initativ, Typ = true }); 
         }
     
         

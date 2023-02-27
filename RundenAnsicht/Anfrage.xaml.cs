@@ -18,13 +18,12 @@ namespace RundenAnsicht
     
     public partial class Anfrage : Page
     {
-        private AnfrageViewModel viewModel = new AnfrageViewModel();
+        public AnfrageViewModel viewModel { get; }
         public bool Typen { get; set; }
-        public Anfrage()
+        public Anfrage(AnfrageViewModel anfrageViewModel)
         {
+            viewModel = anfrageViewModel;
             InitializeComponent();
-            
-
         }
 
         private void Add_Click(object sender, RoutedEventArgs e)

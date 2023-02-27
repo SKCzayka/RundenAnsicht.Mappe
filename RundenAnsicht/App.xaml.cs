@@ -25,12 +25,11 @@ namespace RundenAnsicht
                 .AddSingleton<Konsole>()
                 .AddTransient<Anfrage>()
                 .AddSingleton<Ansicht>()
-                .AddSingleton<Datenholder>();
+                .AddSingleton<Datenholder>()
+                .AddSingleton<AnfrageViewModel>()
+                .AddSingleton<KonsoleViewModel>()
+                .AddSingleton<AnsichtViewModel>();
                 
-               
-                
-            
-
 
             serviceProvider = services.BuildServiceProvider();
             serviceProvider.GetRequiredService<Konsole>().Show();

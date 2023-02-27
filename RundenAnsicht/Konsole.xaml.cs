@@ -19,14 +19,12 @@ namespace RundenAnsicht
     /// </summary>
     public partial class Konsole : Window
     { 
-        private KonsoleViewModel _viewModel;
+        public KonsoleViewModel viewModel { get; }
     
-        public Konsole()
+        public Konsole(KonsoleViewModel konsoleViewModel)
         {
+            viewModel = konsoleViewModel;
             InitializeComponent();
-            _viewModel = (KonsoleViewModel)DataContext;
-            
-             
         }
 
         private void Exit_Click(object sender, RoutedEventArgs e)
@@ -37,7 +35,7 @@ namespace RundenAnsicht
         }
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            _viewModel.show();
+            viewModel.show();
             Start.Visibility = Visibility.Hidden;
 
         }
