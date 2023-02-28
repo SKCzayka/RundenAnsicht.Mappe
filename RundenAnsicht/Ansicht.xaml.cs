@@ -23,16 +23,16 @@ namespace RundenAnsicht
     public partial class Ansicht : Page, INotifyPropertyChanged
     {
         private AnsichtViewModel _viewModel;
-
-        public Ansicht(AnsichtViewModel ansichtViewModel )
+        public Ansicht(AnsichtViewModel ansichtViewModel)
         {
             viewModel= ansichtViewModel;
             InitializeComponent();
-    
-            
+
+
             Kampfrunde.ItemsSource= viewModel.Round;
+
             Neue_Runde.ItemsSource= viewModel.Next_Round;
-            
+
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
@@ -40,7 +40,6 @@ namespace RundenAnsicht
         private void Next_Click(object sender, RoutedEventArgs e)
         {
             viewModel.Next_One();
-
 
         }
 
@@ -54,13 +53,20 @@ namespace RundenAnsicht
             viewModel.Round_End();
         }
         public AnsichtViewModel viewModel
-        { 
+        {
             get { return _viewModel; }
-            set { 
+            set
+            {
                 _viewModel = value;
                 if (PropertyChanged !=null)
                     PropertyChanged(this, new PropertyChangedEventArgs("viewModel"));
             }
+
+        }
+
+        private void IntChange_Click(object sender, RoutedEventArgs e)
+
+        {   
 
         }
     }

@@ -22,6 +22,7 @@ namespace RundenAnsicht
         public bool Typen { get; set; }
         public Anfrage(AnfrageViewModel anfrageViewModel)
         {
+            Typen= true;
             viewModel = anfrageViewModel;
             InitializeComponent();
         }
@@ -43,7 +44,7 @@ namespace RundenAnsicht
 
         private void NeuGegner_Checked(object sender, RoutedEventArgs e)
         {
-            if (Typen) Typen = false;
+            if (Typen== true) Typen = false;
 
         }
     }

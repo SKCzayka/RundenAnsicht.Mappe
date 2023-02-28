@@ -10,7 +10,7 @@ namespace RundenAnsicht.Model
     {
         public string Name { get; set; }
         public int Init { get; set; }
-
+        
         public bool Typ { get; set; }
 
 
@@ -28,7 +28,8 @@ namespace RundenAnsicht.Model
             Typ=typ;
         }
         public Kampfteilnehmer() { }
-              
+          
+       
      }
 }
 

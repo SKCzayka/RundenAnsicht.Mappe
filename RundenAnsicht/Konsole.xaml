@@ -23,54 +23,41 @@
     </Window.Resources>
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="25"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="129*"/>
-            <ColumnDefinition Width="19*"/>
-            <ColumnDefinition Width="52*"/>
+            <ColumnDefinition Width="25"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="25"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Grid.ColumnSpan="3">
-
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="40"/>
-                <RowDefinition Height="25"/>
-            </Grid.RowDefinitions>
+        <Grid   Grid.ColumnSpan="6">
+            <Grid.Background>
+                <ImageBrush ImageSource="/image/grunge-papierhintergrund.jpg"/>
+            </Grid.Background>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="25"/>
-                <ColumnDefinition Width="214*"/>
-                <ColumnDefinition Width="7*"/>
-                <ColumnDefinition Width="74*"/>
-                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="40"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="25"/>
             </Grid.ColumnDefinitions>
 
+            <Image  Margin="5" Source="/image/cubes-34080.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" />
+            <TextBlock Text="Rundenansicht" Grid.Column="1" FontFamily="Arial Black" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
 
+            <Button Grid.Column="2"  Name="Exit" Content="X" Click="Exit_Click"/>
+        </Grid>
 
-            <Grid   Grid.ColumnSpan="6">
-                <Grid.Background>
-                    <ImageBrush ImageSource="/image/grunge-papierhintergrund.jpg"/>
-                </Grid.Background>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="40"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="25"/>
-                </Grid.ColumnDefinitions>
+        <Frame Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="2" Content="{Binding Page}" NavigationUIVisibility="Hidden"/>
+        <Button Margin="5 0" Name="Start" Grid.Row="3" Grid.Column="3"  Content="Start" Click="Start_Click" />
+        <Button Margin="5 0" Name="Beenden" Grid.Row="3" Grid.Column="4" Content="Beenden" Click="Exit_Click" />
 
-                <Image  Margin="5" Source="/image/cubes-34080.png" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Fill" />
-                    
-              
-                <Button Grid.Column="2"  Name="Exit" Content="X" Click="Exit_Click"/>
-            </Grid>
-
-            <Frame Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="2" Content="{Binding Page}" NavigationUIVisibility="Hidden"/>
-            <Button Name="Start" Grid.Row="3" Grid.Column="4" Content="Start" Click="Start_Click" >
-
-            </Button>
-
-        </Grid >
-
-    </Grid>
+    </Grid >
 </Window>
