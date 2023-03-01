@@ -66,8 +66,18 @@ namespace RundenAnsicht
 
         private void IntChange_Click(object sender, RoutedEventArgs e)
 
-        {   
+        {
+            string name = targetname.Text;
+            int ini = int.Parse(targetIni.Text);
+            viewModel.InitativChange(name, ini);
 
         }
+
+        private void Beginnen_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.Beginn();
+            Beginn.Visibility= Visibility.Hidden;
+        }
+
     }
 }
