@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="grunge-papierhintergrund.jpg" />
     <Resource Include="Image\2498.jpg" />
     <Resource Include="Image\cubes-34080.png" />
     <Resource Include="Image\grunge-papierhintergrund.jpg" />

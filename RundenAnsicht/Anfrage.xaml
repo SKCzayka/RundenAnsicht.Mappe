@@ -34,23 +34,36 @@
         </Grid.ColumnDefinitions>
 
 
-
-        <StackPanel Grid.Row="1" Grid.Column="1" >
-            <TextBlock Margin=" 0 5 " Text="Name des Helden oder Gegners"></TextBlock>
-            <TextBlock Margin=" 0 5 " Text="Welchen Initativwert hat er?"></TextBlock>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="2" >
-            
-            <TextBox Margin=" 0 5 " Name="Teilnehmer" Width="250"/>
-            <TextBox Margin=" 0 5 " Name="Initativ" Width="250"/>
-            
-            <StackPanel Margin="20 5" Orientation="Horizontal">
-                <RadioButton Margin="0 0" Name="NeuSpieler" Content="Spieler" Checked="NeuSpieler_Checked"/>
-                <RadioButton Margin="50 0" Name="NeuGegner" Content="Gegner" Checked="NeuGegner_Checked"/>
-            </StackPanel>
-            
-        </StackPanel>
         
+        <Grid  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock  Margin=" 0 5 " Text="Name des Helden oder Gegners"></TextBlock>
+            <TextBox Grid.Column="1" Margin=" 0 5 " Name="Teilnehmer" Width="200" HorizontalAlignment="Left"/>
+
+            
+            <StackPanel  Grid.RowSpan="1" Grid.Row="2" Grid.Column="1" Margin="0 0 5 0" Orientation="Horizontal">
+                <RadioButton Margin="0 5" Name="NeuSpieler" Content="Spieler" IsChecked="True" Checked="NeuSpieler_Checked"/>
+                <RadioButton Margin="60 5" Name="NeuGegner" Content="Gegner" Checked="NeuGegner_Checked"/>
+                
+           
+                
+            </StackPanel >
+             <StackPanel Grid.Column="2" Margin="02 0 15 0" Grid.Row="1" Orientation="Horizontal">
+             <TextBlock Margin="0 0 5 0" Text="Initativ"></TextBlock>
+               <TextBox Margin="0 0 15 0" Name="Initativ" Width="50"/>
+                
+             <TextBlock Margin="10 0 5 0" Text="LP"/>
+                <TextBox Margin="0 0 15 0" x:Name="Lebenspunkte" Width="50"/>
+            </StackPanel>
+        </Grid>
         <Grid Grid.Row="2" Grid.Column="1">
             <Button Margin="5" Content="Teilnehmer Hinzufügen" Name="Add" Click="Add_Click"/>
         </Grid>

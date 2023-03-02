@@ -10,7 +10,7 @@ namespace RundenAnsicht.Model
     {
         public string Name { get; set; }
         public int Init { get; set; }
-        
+        public int LP { get; set; }
         public bool Typ { get; set; }
 
 
@@ -18,13 +18,15 @@ namespace RundenAnsicht.Model
         {
             Name= Daten[0];
             Init= int.Parse(Daten[1]);
-            Typ= bool.Parse(Daten[2]);
+            LP = int.Parse(Daten[2]);
+            Typ= bool.Parse(Daten[3]);
 
         }
-        public Kampfteilnehmer(string name, int init, bool typ)
+        public Kampfteilnehmer(string name, int init,int lp, bool typ)
         {
             Name=name;
             Init=init;
+            LP=lp;
             Typ=typ;
         }
         public Kampfteilnehmer() { }

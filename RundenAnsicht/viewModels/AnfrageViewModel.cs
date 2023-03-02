@@ -1,31 +1,24 @@
-﻿using RundenAnsicht.Model;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace RundenAnsicht
+namespace RundenAnsicht;
+
+public class AnfrageViewModel
+
 {
-    public class AnfrageViewModel
+    public Datenholder Datenholder { get; set; }
 
+    public AnfrageViewModel(Datenholder datenholder)
     {
-        public Datenholder Datenholder { get; set; }
-
-        public AnfrageViewModel(Datenholder datenholder)
-        {
-            Datenholder= datenholder;
-        }
-    
-        public void Add(string teil, int Initativ, bool Typen)
-        {
-             Datenholder.Kampfteilnehmers.Add(new () { Name = teil, Init = Initativ, Typ =Typen}); 
-        }
-    
-        
+        Datenholder= datenholder;
     }
-   
-     
-  
+
+    public void Add(string teil, int Initativ, int lp, bool Typen )
+    {
+         Datenholder.Kampfteilnehmers.Add(new () { Name = teil, Init = Initativ, LP=lp, Typ =Typen}); 
+    }
+
+    
 }
+
+ 
+

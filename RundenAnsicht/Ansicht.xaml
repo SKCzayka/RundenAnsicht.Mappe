@@ -18,41 +18,38 @@
         </Style>
     </Page.Resources>
     <Grid>
-
-
-
         <Grid>
 
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="1*"/>
-                <ColumnDefinition Width="2*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="2*"/>
-            </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
 
-            <TextBlock Text="Runde" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <StackPanel Grid.Column="1" Grid.RowSpan="4"  Orientation="Horizontal">
-                <ItemsControl x:Name="Kampfrunde">
-                    <ItemsControl.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel  Margin="0,0,5,2">
-                                <TextBlock Text="{Binding Name}" />
-                                <TextBlock Text="{Binding Init}" />
-                                <TextBlock Text="{Binding Typ}" />
-                            </StackPanel>
-                        </DataTemplate>
-                    </ItemsControl.ItemTemplate>
-                </ItemsControl>
-            </StackPanel>
+        <TextBlock Text="Runde" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <StackPanel Grid.Column="1" Grid.RowSpan="4"  Orientation="Horizontal">
+            <ItemsControl x:Name="Kampfrunde">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel  Margin="0,0,5,2">
+                            <TextBlock Text="{Binding Name}" />
+                            <TextBlock Text="{Binding Init}" />
+                            <TextBlock Text="{Binding LP}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </StackPanel>
 
-            <TextBlock Text="Nächte Runde" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <TextBlock Text="Nächte Runde" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <StackPanel  Grid.RowSpan="3" Grid.Column="3" Orientation="Horizontal">
                 <ItemsControl x:Name="Neue_Runde" Foreground="Gray" >
                     <ItemsControl.ItemTemplate>
@@ -61,34 +58,21 @@
                             <StackPanel Margin="0,0,0,5">
                                 <TextBlock Text="{Binding Name}" />
                                 <TextBlock Grid.Row="1" Text="{Binding Init}" />
-                                <TextBlock Grid.Row="2" Text="{Binding ''}" />
+                                <TextBlock Grid.Row="2" Text="{Binding LP}" />
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </StackPanel>
 
-            <Grid Grid.Row="4" Grid.ColumnSpan="2">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+            <Grid Grid.Row="4" Grid.ColumnSpan="1">
                 <StackPanel>
-                   <Button Padding="10" Margin="20 5" x:Name="Next" Content="Weiter" Click="Next_Click"/>
-                    <Button Padding="10" Margin="20 5" x:Name="Round_Next" Content="Nächste Runde" Click="Round_Next_Click"/>
-                </StackPanel>
-                
-                <StackPanel Grid.Column="1">
-                    <Label Content="Int wert ändern" HorizontalAlignment="Center" Margin="5"/>
-                    <StackPanel Orientation="Horizontal">
-                      <TextBlock Name="targetname" Text="Teilnehmer"/>
-                      <TextBox  Name="targetIni"  Margin="10" Width="50"/>
-                    </StackPanel>
-                    <Button x:Name="IntChange" Content="Ändern" Click="IntChange_Click"/>
+                    <Button Padding="10" Margin="5" x:Name="Next" Content="Weiter" Click="Next_Click"/>
+                    <Button Padding="10" Margin="5" x:Name="Round_Next" Content="Nächste Runde" Click="Round_Next_Click"/>
                 </StackPanel>
             </Grid>
-        </Grid>
-
+            <Frame  Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Content="{Binding Page}" NavigationUIVisibility="Hidden"/>
+      </Grid>
         <Grid x:Name="Beginn">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -103,7 +87,6 @@
             <Image Grid.ColumnSpan="3" Grid.RowSpan="3" Source="\Image\vintage-strukturierter-aquarellpapierhintergrund.jpg" Stretch="Fill"/>
             <Button  Grid.Column="1" Grid.Row="1" Content="Beginnen" Name="Beginnen" Click="Beginnen_Click"/>
         </Grid>
-
-    </Grid>          
-           
+        </Grid>
+        
 </Page>

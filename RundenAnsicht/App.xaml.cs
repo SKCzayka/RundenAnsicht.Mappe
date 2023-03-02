@@ -1,12 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using RundenAnsicht.Model;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿
 
 namespace RundenAnsicht
 {
@@ -23,12 +15,14 @@ namespace RundenAnsicht
 
             services
                 .AddSingleton<Konsole>()
-                .AddTransient<Anfrage>()
+                .AddSingleton<Anfrage>()
                 .AddSingleton<Ansicht>()
+                .AddSingleton<InitativeChange>()
                 .AddSingleton<Datenholder>()
                 .AddSingleton<AnfrageViewModel>()
                 .AddSingleton<KonsoleViewModel>()
-                .AddSingleton<AnsichtViewModel>();
+                .AddSingleton<AnsichtViewModel>()
+                .AddSingleton<InitiativeChangeViewModel>();
                 
 
             serviceProvider = services.BuildServiceProvider();
