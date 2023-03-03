@@ -19,7 +19,7 @@ public partial class InitativeChange : Page
     {
         string name = targetname.Text;
         int ini = int.Parse(targetIni.Text);
-        //viewModel.(name, ini);
+        viewModel.InitativChange(name, ini);
 
     }
 }

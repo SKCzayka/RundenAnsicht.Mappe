@@ -28,11 +28,6 @@ public partial class Ansicht : Page, INotifyPropertyChanged
 
     }
 
-    private void Exit_Click(object sender, RoutedEventArgs e)
-    {
-
-    }
-
     private void Round_Next_Click(object sender, RoutedEventArgs e)
     {
         viewModel.Round_End();
@@ -54,4 +49,22 @@ public partial class Ansicht : Page, INotifyPropertyChanged
         Beginn.Visibility= Visibility.Hidden;
     }
 
+    private void IniChange_Click(object sender, RoutedEventArgs e)
+    {
+        viewModel.IniShow();
+        back.Visibility= Visibility.Visible;
+        
+    }
+
+    private void LPChange_Click(object sender, RoutedEventArgs e)
+    {
+        viewModel.LPshow();
+        back.Visibility= Visibility.Hidden;
+    }
+
+    private void back_Click(object sender, RoutedEventArgs e)
+    {
+        viewModel.Back();
+        back.Visibility = Visibility.Hidden;
+    }
 }
