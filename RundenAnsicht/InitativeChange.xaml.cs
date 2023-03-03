@@ -7,10 +7,10 @@ namespace RundenAnsicht;
 /// </summary>
 public partial class InitativeChange : Page
 {
-    public InitiativeChangeViewModel viewModel { get; }
+    public InitiativeChangeViewModel ViewModel { get; }
     public InitativeChange(InitiativeChangeViewModel initiativeChangeViewModel)
     {
-        viewModel = initiativeChangeViewModel;
+        ViewModel = initiativeChangeViewModel;
         InitializeComponent();
        
     }
@@ -19,7 +19,7 @@ public partial class InitativeChange : Page
     {
         string name = targetname.Text;
         int ini = int.Parse(targetIni.Text);
-        //viewModel.(name, ini);
+        ViewModel.InitativChange(name, ini);
 
     }
 }

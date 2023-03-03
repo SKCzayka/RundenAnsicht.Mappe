@@ -10,13 +10,13 @@ public partial class Ansicht : Page, INotifyPropertyChanged
     private AnsichtViewModel _viewModel;
     public Ansicht(AnsichtViewModel ansichtViewModel)
     {
-        viewModel= ansichtViewModel;
+        ViewModel= ansichtViewModel;
         InitializeComponent();
 
 
-        Kampfrunde.ItemsSource= viewModel.Round;
+        Kampfrunde.ItemsSource= ViewModel.Round;
 
-        Neue_Runde.ItemsSource= viewModel.Next_Round;
+        Neue_Runde.ItemsSource= ViewModel.Next_Round;
 
     }
 
@@ -24,20 +24,15 @@ public partial class Ansicht : Page, INotifyPropertyChanged
 
     private void Next_Click(object sender, RoutedEventArgs e)
     {
-        viewModel.Next_One();
-
-    }
-
-    private void Exit_Click(object sender, RoutedEventArgs e)
-    {
+        ViewModel.Next_One();
 
     }
 
     private void Round_Next_Click(object sender, RoutedEventArgs e)
     {
-        viewModel.Round_End();
+        ViewModel.Round_End();
     }
-    public AnsichtViewModel viewModel
+    public AnsichtViewModel ViewModel
     {
         get { return _viewModel; }
         set
@@ -48,10 +43,30 @@ public partial class Ansicht : Page, INotifyPropertyChanged
         }
 
     }
+    //vorsortierung
     private void Beginnen_Click(object sender, RoutedEventArgs e)
     {
-        viewModel.Beginn();
+        ViewModel.SortDatenholder();
         Beginn.Visibility= Visibility.Hidden;
     }
 
+    //Änderungs menü
+    private void IniChange_Click(object sender, RoutedEventArgs e)
+    {
+        ViewModel.IniShow();
+        check.Visibility= Visibility.Visible;
+        
+    }
+
+    private void LPChange_Click(object sender, RoutedEventArgs e)
+    {
+        ViewModel.LPshow();
+        check.Visibility= Visibility.Hidden;
+    }
+
+    private void Check_Click(object sender, RoutedEventArgs e)
+    {
+        ViewModel.Check();
+        check.Visibility = Visibility.Hidden;
+    }
 }

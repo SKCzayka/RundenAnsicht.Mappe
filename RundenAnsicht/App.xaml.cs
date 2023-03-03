@@ -1,5 +1,7 @@
 ﻿
 
+using RundenAnsicht.viewModels;
+
 namespace RundenAnsicht
 {
     /// <summary>
@@ -14,15 +16,22 @@ namespace RundenAnsicht
             ServiceCollection services = new ServiceCollection();
 
             services
+                //Seiten und Fenster
                 .AddSingleton<Konsole>()
                 .AddSingleton<Anfrage>()
                 .AddSingleton<Ansicht>()
                 .AddSingleton<InitativeChange>()
+                .AddSingleton<LPChange>()
+
+                //Datehaltert
                 .AddSingleton<Datenholder>()
+
+                //ViewModels
                 .AddSingleton<AnfrageViewModel>()
                 .AddSingleton<KonsoleViewModel>()
                 .AddSingleton<AnsichtViewModel>()
-                .AddSingleton<InitiativeChangeViewModel>();
+                .AddSingleton<InitiativeChangeViewModel>()
+                .AddSingleton<LPviewModel>();
                 
 
             serviceProvider = services.BuildServiceProvider();

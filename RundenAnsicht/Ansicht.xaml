@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RundenAnsicht" 
       mc:Ignorable="d" FontFamily="Arial Black" 
-      d:DesignHeight="450" d:DesignWidth="800" x:Name="Ans" DataContext="{Binding  viewModel,ElementName=Ans}"
+      d:DesignHeight="450" d:DesignWidth="800" x:Name="Ans" DataContext="{Binding  ViewModel,ElementName=Ans}"
       Title="Ansicht">
     <Page.Resources>
         <Style TargetType="Button" >
@@ -34,46 +34,87 @@
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
+            <!--#region Aktuelle Runde-->
         <TextBlock Text="Runde" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         <StackPanel Grid.Column="1" Grid.RowSpan="4"  Orientation="Horizontal">
             <ItemsControl x:Name="Kampfrunde">
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel  Margin="0,0,5,2">
-                            <TextBlock Text="{Binding Name}" />
-                            <TextBlock Text="{Binding Init}" />
-                            <TextBlock Text="{Binding LP}" />
-                        </StackPanel>
+                            <StackPanel Margin="0 5">
+                                <TextBlock   Margin="0 5" Text="{Binding Name}" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="LP:"/>
+                                    <TextBlock  Margin="4 0 6 0" Text="{Binding LP}" />
+                                    <TextBlock Text="Initativ"/>
+                                    <TextBlock  Margin="6 0 " Text="{Binding Init}" />
+                                </StackPanel>
+                            </StackPanel>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
         </StackPanel>
-
+        <!--#endregion-->
+            
+        <!--#region Nächste Runde-->    
         <TextBlock Text="Nächte Runde" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             <StackPanel  Grid.RowSpan="3" Grid.Column="3" Orientation="Horizontal">
                 <ItemsControl x:Name="Neue_Runde" Foreground="Gray" >
                     <ItemsControl.ItemTemplate>
-
-                        <DataTemplate >
-                            <StackPanel Margin="0,0,0,5">
-                                <TextBlock Text="{Binding Name}" />
-                                <TextBlock Grid.Row="1" Text="{Binding Init}" />
-                                <TextBlock Grid.Row="2" Text="{Binding LP}" />
+                        <DataTemplate>
+                            <StackPanel Margin="0 5">
+                                <TextBlock   Margin="0 5" Text="{Binding Name}" />
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="LP:"/>
+                                    <TextBlock  Margin="4 0 6 0" Text="{Binding LP}" />
+                                    <TextBlock Text="Initativ"/>
+                                    <TextBlock  Margin="6 0 " Text="{Binding Init}" />
+                                </StackPanel>
                             </StackPanel>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
             </StackPanel>
-
+        <!--#endregion-->
+        
+                <!--Auswahl menü-->
             <Grid Grid.Row="4" Grid.ColumnSpan="1">
-                <StackPanel>
-                    <Button Padding="10" Margin="5" x:Name="Next" Content="Weiter" Click="Next_Click"/>
-                    <Button Padding="10" Margin="5" x:Name="Round_Next" Content="Nächste Runde" Click="Round_Next_Click"/>
-                </StackPanel>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                
+                    <Button  Margin="0  0 0 2.5  "  x:Name="Next" Content="Weiter" Click="Next_Click"/>
+                    <Button Grid.Row="1" Margin="0 5" x:Name="Round_Next" Content="Nächste Runde" Click="Round_Next_Click"/>
+                    <StackPanel Margin="0 2.5 " Grid.Row="2" Orientation="Horizontal">
+                        <Button   Padding="4.5 " x:Name="IniChange" Content="Initativ" Click="IniChange_Click"/>
+                        <Button  Margin="15 0" Padding="16 5" x:Name="LPChange" Content="LP" Click="LPChange_Click"/>
+                    </StackPanel>
+                
+                
             </Grid>
-            <Frame  Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" Content="{Binding Page}" NavigationUIVisibility="Hidden"/>
-      </Grid>
-        <Grid x:Name="Beginn">
+            <Frame BorderBrush="Black" BorderThickness="3" Margin="5 0" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Content="{Binding Page}" NavigationUIVisibility="Hidden">
+                <Frame.Background>
+                    <ImageBrush ImageSource="image/grunge-papierhintergrund.jpg" Stretch="Fill"/>
+                </Frame.Background>
+            </Frame>
+            <Grid Grid.Column="1" Grid.Row="4" >
+            <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Button Grid.Row="4" x:Name="check" Content="Bestätigen" Margin="5 0" Click="Check_Click" Visibility="Hidden"/>
+        </Grid>
+        </Grid>
+            <!-- Fenster fürs Menü -->
+       <Grid x:Name="Beginn">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -87,6 +128,7 @@
             <Image Grid.ColumnSpan="3" Grid.RowSpan="3" Source="\Image\vintage-strukturierter-aquarellpapierhintergrund.jpg" Stretch="Fill"/>
             <Button  Grid.Column="1" Grid.Row="1" Content="Beginnen" Name="Beginnen" Click="Beginnen_Click"/>
         </Grid>
-        </Grid>
+           
+    </Grid>
         
 </Page>

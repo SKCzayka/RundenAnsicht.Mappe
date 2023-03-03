@@ -4,12 +4,12 @@ namespace RundenAnsicht;
 
 public partial class Anfrage : Page
 {
-    public AnfrageViewModel viewModel { get; }
+    public AnfrageViewModel ViewModel { get; }
     public bool Typen { get; set; }
     public Anfrage(AnfrageViewModel anfrageViewModel)
     {
         Typen= true;
-        viewModel = anfrageViewModel;
+        ViewModel = anfrageViewModel;
         InitializeComponent();
     }
 
@@ -19,7 +19,7 @@ public partial class Anfrage : Page
         string teil= Teilnehmer.Text;
         int Initati = int.Parse(Initativ.Text);
         int lp =int.Parse(Lebenspunkte.Text);
-        viewModel.Add(teil, Initati, lp,Typen);
+        ViewModel.Add(teil, Initati, lp,Typen);
         Initativ.Clear();
         Teilnehmer.Clear();
         Lebenspunkte.Clear();

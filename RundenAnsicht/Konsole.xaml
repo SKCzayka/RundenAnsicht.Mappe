@@ -36,10 +36,11 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="25"/>
         </Grid.ColumnDefinitions>
 
-        <Grid   Grid.ColumnSpan="6">
+        <Grid   Grid.ColumnSpan="7">
             <Grid.Background>
                 <ImageBrush ImageSource="/image/grunge-papierhintergrund.jpg"/>
             </Grid.Background>
@@ -55,9 +56,9 @@
             <Button Grid.Column="2"  Name="Exit" Content="X" Click="Exit_Click"/>
         </Grid>
 
-        <Frame Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="2" Grid.RowSpan="2" Content="{Binding Page}" NavigationUIVisibility="Hidden"/>
-        <Button Margin="5 0" Name="Start" Grid.Row="3" Grid.Column="3"  Content="Weiter" Click="Start_Click" />
-        <Button Margin="5 0" Name="Beenden" Grid.Row="3" Grid.Column="4" Content="Beenden" Click="Exit_Click" />
+        <Frame Grid.Column="1" Grid.ColumnSpan="5" Grid.Row="2" Grid.RowSpan="2" Content="{Binding Page}" NavigationUIVisibility="Hidden"/>
+        <Button Margin="5 0" Name="Start" Grid.Row="3" Grid.Column="4"  Content="Weiter" Click="Start_Click" />
+        <Button Margin="5 0" Name="Beenden" Grid.Row="3" Grid.Column="5" Content="Beenden" Click="Exit_Click" />
 
     </Grid >
 </Window>
