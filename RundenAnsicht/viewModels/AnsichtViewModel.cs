@@ -38,74 +38,21 @@ public class AnsichtViewModel : INotifyPropertyChanged
     {
         if(Page != _initativeChange)
         {
-            Page = _initativeChange;
-        } 
+            _page = value;
+            if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs("Page"));
+        }
     }
-
-    public void LPshow()
-    { 
-        if(Page != _lpChange) 
-        {
-            Page = _lpChange;
-        } 
-    }
-
-
-//Sortieren
-    public void SortDatenholder()
+    private InitativeChange _initativeChange;
+    public void Beginn()
     {
         Halter =  new ObservableCollection<Kampfteilnehmer>(Datenholder.Kampfteilnehmers.OrderByDescending(x => x.Init));// Erstellt eine neue Sequence
         foreach (var item in Halter)
         {
           Round.Add(item);    
         }
-        Halter.Clear();
+       
     }
-    public void Sortall()
-    {
-        foreach (var item in Datenholder.Kampfteilnehmers)
-        {
-            foreach (var itemRound in Round)
-            {
-                if(item.Name == itemRound.Name && item.Init != itemRound.Init )
-                {
-                   Round.Remove(itemRound);
-                    Round.Add(item);
-                   
-
-                    Halter =  new ObservableCollection<Kampfteilnehmer>(Round.OrderByDescending(x => x.Init));// Erstellt eine neue Sequence
-                    Round.Clear();
-                    foreach (var items in Halter)
-                     {
-                        Round.Add(items);
-                     }
-                    return;
-                }
-            }
-            foreach(var itemRound_Next in Next_Round )
-            {
-                if(item.Name == itemRound_Next.Name && itemRound_Next != item)
-                {
-                    Next_Round.Remove(itemRound_Next);
-                    Next_Round.Add(item);
-                    Halter = new ObservableCollection<Kampfteilnehmer>(Next_Round.OrderByDescending(x => x.Init));
-                     Next_Round.Clear();
-                     foreach(var items in Halter)
-                 {
-                    Next_Round.Add(items);
-                    return;
-                 }
-
-                }
-            }   
-        }
-    }
-
-
-
-
-    //Button funktionen
-
     public void Next_One()
     {
 
@@ -127,6 +74,12 @@ public class AnsichtViewModel : INotifyPropertyChanged
         Page =new Page();
     }
 
+    public void Back()
+    {
+        Beginn();
+        Page =new Page();
+    }
+
     public void Round_End()
     {
         foreach(var Item in Next_Round) 
@@ -138,8 +91,25 @@ public class AnsichtViewModel : INotifyPropertyChanged
 
     }
 
-    
-   //Notifi kram
+    public void InitativChange(string name, int initiv)
+    {
+       foreach (var item in Round)
+        {
+            if(item.Name == name)
+            {
+                bool Typen = item.Typ;
+
+                Round.Remove(item);
+                Round.Add(new() { Name = name, Init = initiv, Typ =Typen });
+                break;
+            
+            }
+        }
+        Halter = new ObservableCollection<Kampfteilnehmer>(Round.OrderByDescending(x => x.Init));
+        Round.Clear();
+        foreach(var item in Halter) 
+        { Round.Add(item); }
+    }
 
     public event PropertyChangedEventHandler? PropertyChanged;
 
