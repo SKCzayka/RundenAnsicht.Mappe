@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RundenAnsicht"
       mc:Ignorable="d" FontFamily="Arial Black"
-      d:DesignHeight="450" d:DesignWidth="800" x:Name="Anf" DataContext="{Binding viewModel, ElementName=Anf}"
+      d:DesignHeight="420" d:DesignWidth="1049" x:Name="Anf" DataContext="{Binding ViewModel, ElementName=Anf}"
       Title="Anfrage">
 
     <Page.Resources>
@@ -37,29 +37,34 @@
         
         <Grid  Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
                 <RowDefinition Height="2*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="4*"/>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock  Margin=" 0 5 " Text="Name des Helden oder Gegners"></TextBlock>
-            <TextBox Grid.Column="1" Margin=" 0 5 " Name="Teilnehmer" Width="200" HorizontalAlignment="Left"/>
+            
+            <TextBlock   Text="Name des Helden oder Gegners" VerticalAlignment="Center"></TextBlock>
+            <TextBox Grid.Column="1" Grid.ColumnSpan="3" Margin=" 0 5 " Name="Teilnehmer" Width="200" HorizontalAlignment="Left"/>
 
-              <StackPanel Grid.Column="2" Margin="02 0 15 0" Grid.Row="1" Orientation="Horizontal">
-             <TextBlock Margin="0 0 5 0" Text="Initativ"></TextBlock>
-               <TextBox Margin="0 0 15 0" Name="Initativ" Width="50"/>
-                
-             <TextBlock Margin="10 0 5 0" Text="LP"/>
-                <TextBox Margin="0 0 15 0" x:Name="Lebenspunkte" Width="50"/>
+            <StackPanel Grid.Column="2" Margin=" 0 0 5 0" Grid.Row="1" Orientation="Horizontal" >
+                <TextBlock HorizontalAlignment="Center" Margin="0 0 5 0" Text="Initativ" VerticalAlignment="Center"/>
+                <TextBox Name="Initativ" Width="46"/>
             </StackPanel>
             
-            <StackPanel  Grid.RowSpan="1" Grid.Row="2" Grid.Column="1" Margin="0 0 5 0" Orientation="Horizontal">
+            <StackPanel Grid.Column="1"  Grid.Row="1" Orientation="Horizontal" >
+            <TextBlock Margin="0 0 5 0" Text="LP" VerticalAlignment="Center"/>
+                <TextBox x:Name="Lebenspunkte" Width="50"/>
+            </StackPanel>
+            
+            <StackPanel  Grid.ColumnSpan="2" Grid.Row="2" Grid.Column="1" Margin="0 0 5 0" Orientation="Horizontal">
                 <RadioButton Margin="0 5" Name="NeuSpieler" Content="Spieler" IsChecked="True" Checked="NeuSpieler_Checked"/>
                 <RadioButton Margin="60 5" Name="NeuGegner" Content="Gegner" Checked="NeuGegner_Checked"/>
-         
             </StackPanel >
            
         </Grid>
