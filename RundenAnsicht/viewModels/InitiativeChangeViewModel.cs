@@ -24,15 +24,14 @@ namespace RundenAnsicht
                 if (item.Name == name)
                 {
                     bool Typen = item.Typ;
+                    int lp = item.LP;
 
                     Datenholder.Kampfteilnehmers.Remove(item);
-                    Datenholder.Kampfteilnehmers.Add(new() { Name = name, Init = initiv, Typ =Typen });
+                    Datenholder.Kampfteilnehmers.Add(new() { Name = name, Init = initiv, Typ =Typen, LP =lp });
                     break;
 
                 }
             }
-
-
 
 
             // Nofify
