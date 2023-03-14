@@ -7,6 +7,7 @@ public class AnsichtViewModel : INotifyPropertyChanged
 {
     private Datenholder _Datenholdern;
     public ObservableCollection<Kampfteilnehmer> Round { get; set; }
+    public ObservableCollection<Kampfteilnehmer> Dead { get; set; }
     public ObservableCollection<Kampfteilnehmer> Next_Round { get; set; }
     private ObservableCollection<Kampfteilnehmer> _Halter;
     private Page _page;
@@ -19,6 +20,7 @@ public class AnsichtViewModel : INotifyPropertyChanged
         Next_Round = new ObservableCollection<Kampfteilnehmer>();
         Round = new ObservableCollection<Kampfteilnehmer>();
         Halter= new ObservableCollection<Kampfteilnehmer>();
+        Dead = new ObservableCollection<Kampfteilnehmer>();
 
         _initativeChange= App.serviceProvider.GetService<InitativeChange>();
         _lpChange= App.serviceProvider.GetService<LPChange>();
@@ -123,7 +125,17 @@ public class AnsichtViewModel : INotifyPropertyChanged
 
     public void Check()
     {
-        Sortall();
+        if(Page ==_initativeChange)
+        { 
+            Sortall();
+            
+        }
+       
+        if(Page == _lpChange)
+        {
+            Alive();
+
+        }
         Page =new Page();
     }
 
@@ -138,6 +150,41 @@ public class AnsichtViewModel : INotifyPropertyChanged
 
     }
 
+    public void Alive()
+    {
+        foreach (var life in Datenholder.Kampfteilnehmers)
+        {
+            if (life.LP <= 0)
+            {
+                Dead.Add(life);
+                Datenholder.Kampfteilnehmers.Remove(life);
+                break;
+
+            }
+            
+
+        }
+        foreach (var soul in Dead)
+        {
+            foreach (var Item in Round)
+            {
+                if (Item.Name == soul.Name)
+                {
+                    Round.Remove(Item);
+                    break;
+                }
+            }
+
+            foreach (var Item in Next_Round)
+            {
+                if (Item.Name == soul.Name)
+                {
+                    Next_Round.Remove(Item);
+                    break;
+                }
+            }
+        }
+    }
 
     //Notifi kram
 

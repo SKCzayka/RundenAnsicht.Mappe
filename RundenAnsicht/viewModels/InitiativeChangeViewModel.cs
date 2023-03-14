@@ -25,9 +25,10 @@ namespace RundenAnsicht
                 {
                     bool Typen = item.Typ;
                     int lp = item.LP;
+                    int lpmax = item.MaxLP;
 
                     Datenholder.Kampfteilnehmers.Remove(item);
-                    Datenholder.Kampfteilnehmers.Add(new() { Name = name, Init = initiv, Typ =Typen, LP =lp });
+                    Datenholder.Kampfteilnehmers.Add(new() { Name = name, Init = initiv, Typ =Typen, LP =lp , MaxLP =lpmax});
                     break;
 
                 }

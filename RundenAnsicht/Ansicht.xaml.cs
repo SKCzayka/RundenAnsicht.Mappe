@@ -18,6 +18,8 @@ public partial class Ansicht : Page, INotifyPropertyChanged
 
         Neue_Runde.ItemsSource= ViewModel.Next_Round;
 
+        Friedhof.ItemsSource= ViewModel.Dead;
+
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -61,7 +63,7 @@ public partial class Ansicht : Page, INotifyPropertyChanged
     private void LPChange_Click(object sender, RoutedEventArgs e)
     {
         ViewModel.LPshow();
-        check.Visibility= Visibility.Hidden;
+        check.Visibility= Visibility.Visible;
     }
 
     private void Check_Click(object sender, RoutedEventArgs e)

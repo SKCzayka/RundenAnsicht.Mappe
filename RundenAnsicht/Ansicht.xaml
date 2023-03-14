@@ -46,8 +46,12 @@
                                 <TextBlock   Margin="0 5" Text="{Binding Name}" />
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="LP:"/>
-                                    <TextBlock  Margin="4 0 6 0" Text="{Binding LP}" />
-                                    <TextBlock Text="Initativ"/>
+                                    <TextBlock  Margin="4 0 0 0" Text="{Binding LP}" />
+                                        <TextBlock Text="/"/>
+                                    <TextBlock Margin="0 0 6 0" Text="{Binding MaxLP}"/>
+                                    
+                                   
+                                    <TextBlock Text="I"/>
                                     <TextBlock  Margin="6 0 " Text="{Binding Init}" />
                                 </StackPanel>
                             </StackPanel>
@@ -67,8 +71,12 @@
                                 <TextBlock   Margin="0 5" Text="{Binding Name}" />
                                 <StackPanel Orientation="Horizontal">
                                     <TextBlock Text="LP:"/>
-                                    <TextBlock  Margin="4 0 6 0" Text="{Binding LP}" />
-                                    <TextBlock Text="Initativ"/>
+                                    <TextBlock  Margin="4 0 0 0" Text="{Binding LP}" />
+                                    <TextBlock Text="/"/>
+                                    <TextBlock Margin="0 0 6 0" Text="{Binding MaxLP}"/>
+
+
+                                    <TextBlock Text="I"/>
                                     <TextBlock  Margin="6 0 " Text="{Binding Init}" />
                                 </StackPanel>
                             </StackPanel>
@@ -77,8 +85,26 @@
                 </ItemsControl>
             </StackPanel>
         <!--#endregion-->
-        
-                <!--Auswahl menü-->
+
+            <!--#region Nächste Runde-->
+            <TextBlock Text="Friedhof" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <StackPanel  Grid.RowSpan="4" Grid.Row="1" Grid.Column="5" Orientation="Horizontal">
+                <ItemsControl x:Name="Friedhof" Foreground="Gray" >
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Margin="0 5">
+                                <TextBlock   Margin="0 5" Text="{Binding Name}" />
+
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+            <!--#endregion-->
+
+
+
+            <!--Auswahl menü-->
             <Grid Grid.Row="4" Grid.ColumnSpan="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>

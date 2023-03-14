@@ -4,11 +4,49 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RundenAnsicht"
-      mc:Ignorable="d" 
+      mc:Ignorable="d" Name="lpChange" DataContext="{Binding ViewModel ,ElementName=lpChange}"
       d:DesignHeight="450" d:DesignWidth="800"
       Title="LPChange">
-
+    <Page.Resources>
+        <Style TargetType="Button" >
+            <Setter Property="Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="/image/2498.jpg"/>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="FontFamily" Value="Arial Black"/>
+        </Style>
+    </Page.Resources>
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="143"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+
+        </Grid.RowDefinitions>
+        <Grid Background="Beige" Grid.ColumnSpan="3" Margin="0 0 0 5">
+            <Label Content="Lebenspunkte ändern ändern"  HorizontalAlignment="Center" Padding="0 6"/>
+        </Grid>
+
+        <StackPanel Grid.Row="2"  Orientation="Horizontal">
+            <TextBlock  Text="Teilnehmer"/>
+            <TextBox  Name="targetname"  Margin="10 0  0 15 " Height="17" Width="100" VerticalAlignment="Top"/>
+       
+            <TextBlock Text="Lebenpunkte"/>
+            <TextBox  Name="targetLP"  Margin="10 0 0 15" Width="40" Height="17"  VerticalAlignment="Top"/>
+
+             <RadioButton Name="Hit" Content="Schaden" Margin="5 0" HorizontalAlignment="Center" IsChecked="True" Checked="Hit_Checked" />
+             <RadioButton Name="Heal" Content="Heilung" Checked="Heal_Checked"  IsChecked="False"/>
+                                         
+        </StackPanel>
+        <Button  x:Name="IntChange" Content="Ändern"  Grid.Column="3" Grid.Row="1" Click="LPChange_Click"/>
+       
+       
     </Grid>
 </Page>

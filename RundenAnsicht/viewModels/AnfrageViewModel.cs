@@ -14,7 +14,7 @@ public class AnfrageViewModel
 
     public void Add(string teil, int Initativ, int lp, bool Typen )
     {
-         Datenholder.Kampfteilnehmers.Add(new () { Name = teil, Init = Initativ, LP=lp, Typ =Typen}); 
+         Datenholder.Kampfteilnehmers.Add(new () { Name = teil, Init = Initativ, LP=lp, MaxLP=lp, Typ =Typen}); 
     }
 
     
