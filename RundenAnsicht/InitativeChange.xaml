@@ -34,14 +34,14 @@
             <Label Content="Int wert ändern"  HorizontalAlignment="Center" Padding="0 6"/>
         </Grid>
         
-        <StackPanel Grid.Row="1"  Margin="15 5 0 0" Orientation="Horizontal">
+        <StackPanel Grid.Row="2"  Margin="15 5 0 0" Orientation="Horizontal">
             <TextBlock  Text="Teilnehmer"/>
-            <TextBox  Name="targetname"  Margin="10 0  0 15 " Width="100"/>
+            <TextBox  Name="targetname"  Margin="10 0  0 15 " Height="17" Width="100" VerticalAlignment="Top"/>
         </StackPanel>
 
-        <StackPanel Grid.Row="1" Grid.Column="1" Margin="15 5 0 0" Orientation="Horizontal">
+        <StackPanel Grid.Row="2" Grid.Column="1" Margin="15 5 0 0" Orientation="Horizontal">
             <TextBlock Text="Initativwert"/>
-            <TextBox  Name="targetIni"  Margin="10 0 0 15" Width="25"/>
+            <TextBox  Name="targetIni"  Margin="10 0 0 15" Width="25" Height="17"  VerticalAlignment="Top"/>
             
         </StackPanel>
         <Button  x:Name="IntChange" Content="Ändern"  Grid.Column="3" Grid.Row="1" Click="IntChange_Click"/>       
