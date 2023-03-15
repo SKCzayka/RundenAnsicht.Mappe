@@ -42,7 +42,7 @@ namespace RundenAnsicht.viewModels
                    
 
                     Datenholder.Kampfteilnehmers.Remove(item);
-                    Datenholder.Kampfteilnehmers.Add(new() { Name = name, Init = initiv, Typ =Typen, LP =lp });
+                    Datenholder.Kampfteilnehmers.Add(new() { Name = name, Init = initiv, Typ =Typen, LP =lp ,MaxLP = maxlp});
                     break;
 
                 }

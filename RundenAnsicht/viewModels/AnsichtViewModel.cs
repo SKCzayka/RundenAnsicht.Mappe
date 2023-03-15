@@ -53,55 +53,7 @@ public class AnsichtViewModel : INotifyPropertyChanged
     }
 
 
-    //Sortieren
-    public void SortDatenholder()
-    {
-        Halter =  new ObservableCollection<Kampfteilnehmer>(Datenholder.Kampfteilnehmers.OrderByDescending(x => x.Init));// Erstellt eine neue Sequence
-        foreach (var item in Halter)
-        {
-            Round.Add(item);
-        }
-        Halter.Clear();
-    }
-    public void Sortall()
-    {
-        foreach (var item in Datenholder.Kampfteilnehmers)
-        {
-            foreach (var itemRound in Round)
-            {
-                if (item.Name == itemRound.Name && item.Init != itemRound.Init)
-                {
-                    Round.Remove(itemRound);
-                    Round.Add(item);
-
-
-                    Halter =  new ObservableCollection<Kampfteilnehmer>(Round.OrderByDescending(x => x.Init));// Erstellt eine neue Sequence
-                    Round.Clear();
-                    foreach (var items in Halter)
-                    {
-                        Round.Add(items);
-                    }
-                    return;
-                }
-            }
-            foreach (var itemRound_Next in Next_Round)
-            {
-                if (item.Name == itemRound_Next.Name && itemRound_Next != item)
-                {
-                    Next_Round.Remove(itemRound_Next);
-                    Next_Round.Add(item);
-                    Halter = new ObservableCollection<Kampfteilnehmer>(Next_Round.OrderByDescending(x => x.Init));
-                    Next_Round.Clear();
-                    foreach (var items in Halter)
-                    {
-                        Next_Round.Add(items);
-                        return;
-                    }
-
-                }
-            }
-        }
-    }
+   
 
 
 
@@ -134,6 +86,7 @@ public class AnsichtViewModel : INotifyPropertyChanged
         if(Page == _lpChange)
         {
             Alive();
+            Die();
 
         }
         Page =new Page();
@@ -149,8 +102,93 @@ public class AnsichtViewModel : INotifyPropertyChanged
         Next_Round.Clear();
 
     }
+    
+    //Sortieren
+    public void SortDatenholder()
+    {
+        Halter =  new ObservableCollection<Kampfteilnehmer>(Datenholder.Kampfteilnehmers.OrderByDescending(x => x.Init));// Erstellt eine neue Sequence
+        foreach (var item in Halter)
+        {
+            Round.Add(item);
+        }
+        Halter.Clear();
+    }
+    public void Sortall()
+    {
+        foreach (var item in Datenholder.Kampfteilnehmers)
+        {
+            foreach (var itemRound in Round)
+            {
+                if (item.Name == itemRound.Name && item.Init != itemRound.Init)
+                {
+                    Round.Remove(itemRound);
+                    Round.Add(item);
+                   
+                }
+                Halter =  new ObservableCollection<Kampfteilnehmer>(Round.OrderByDescending(x => x.Init));// Erstellt eine neue Sequence
+                Round.Clear();
+                foreach (var items in Halter)
+                {
+                    Round.Add(items);
+                }
+            }
+            foreach (var itemRound_Next in Next_Round)
+            {
+                if (item.Name == itemRound_Next.Name && itemRound_Next != item)
+                {
+                    Next_Round.Remove(itemRound_Next);
+                    Next_Round.Add(item);
+                    Halter = new ObservableCollection<Kampfteilnehmer>(Next_Round.OrderByDescending(x => x.Init));
+                    Next_Round.Clear();
+                    foreach (var items in Halter)
+                    {
+                        Next_Round.Add(items);
+                    }
 
+                }
+            }
+        }
+    }
+
+    //Lebenpunkte
     public void Alive()
+    {
+        foreach(var item in Datenholder.Kampfteilnehmers)
+        {
+            foreach(var Teilnehmer in Round)
+            {
+                if(item.Name ==  Teilnehmer.Name && Teilnehmer.LP != item.LP) 
+                { 
+                   Teilnehmer.LP = item.LP;
+                    Halter =  new ObservableCollection<Kampfteilnehmer>(Round.OrderByDescending(x => x.Init));// Erstellt eine neue Sequence
+                    Round.Clear();
+                    foreach (var items in Halter)
+                    {
+                        Round.Add(items);
+                    }
+                    return;
+                }
+            }
+            foreach(var itemRound_Next in Next_Round)
+            {
+                if(item.Name == itemRound_Next.Name && item.LP != itemRound_Next.LP)
+                {
+                    itemRound_Next.LP = item.LP;
+
+                    Halter = new ObservableCollection<Kampfteilnehmer>(Next_Round.OrderByDescending(x => x.Init));
+                    Next_Round.Clear();
+                    foreach (var items in Halter)
+                    {
+                        Next_Round.Add(items);
+                        
+                    }
+                    return;
+                }  
+            }
+        }
+    }
+
+    public void Die()
     {
         foreach (var life in Datenholder.Kampfteilnehmers)
         {
@@ -158,11 +196,8 @@ public class AnsichtViewModel : INotifyPropertyChanged
             {
                 Dead.Add(life);
                 Datenholder.Kampfteilnehmers.Remove(life);
-                break;
-
+                return;
             }
-            
-
         }
         foreach (var soul in Dead)
         {
@@ -171,7 +206,7 @@ public class AnsichtViewModel : INotifyPropertyChanged
                 if (Item.Name == soul.Name)
                 {
                     Round.Remove(Item);
-                    break;
+                    return;
                 }
             }
 
@@ -180,7 +215,7 @@ public class AnsichtViewModel : INotifyPropertyChanged
                 if (Item.Name == soul.Name)
                 {
                     Next_Round.Remove(Item);
-                    break;
+                    return;
                 }
             }
         }
